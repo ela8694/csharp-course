@@ -4,12 +4,18 @@ namespace Test.Generics
 {
     public class TestIRepository
     {
+        private readonly MemoryRepository<string> _repository;
+
+        public TestIRepository()
+        {
+            _repository = new MemoryRepository<string>();
+        }
+
         [Fact]
         public void IRepository_ShouldAddAndGetValue()
         {
-            var repository = new MemoryRepository<string>();
-            repository.Add("Item1");
-            var result = repository.Find(1);
+            _repository.Add("Item1");
+            var result = _repository.Find(1);
             Assert.NotNull(result);
             Assert.Equal("Item1", result);
         }
@@ -17,8 +23,8 @@ namespace Test.Generics
         [Fact]
         public void Repository_GetInvalidId_ShouldReturnDefault()
         {
-            // TODO: Complete the test
-            // Assert.Null(result);
+            var result = _repository.Find(1);
+            Assert.Null(result);
         }
     }
 

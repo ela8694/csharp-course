@@ -6,7 +6,7 @@ namespace Generics
     {
         public T Add(T a, T b) => a + b;
 
-        public T Substract(T a, T b) => a - b;
+        public T Subtract(T a, T b) => a - b;
 
         public T Multiply(T a, T b) => a * b;
 
