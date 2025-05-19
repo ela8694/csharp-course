@@ -2,7 +2,7 @@
 {
     // TODO: Define constraints based on existing unit tests
     // OPTIONAL: Enhance the logic if possible
-    public class DynamicArray<T>
+    public class DynamicArray<T> where T : notnull, IEquatable<T>
     {
         private T[] _data;
         private int _count;

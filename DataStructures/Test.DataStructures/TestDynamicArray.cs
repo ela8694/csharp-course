@@ -37,7 +37,7 @@ namespace Test.DataStructures
             var dynamicArray = new DynamicArray<string>();
             dynamicArray.Add("Jose");
             var oldCount = dynamicArray.Count;
-            
+
             dynamicArray.Set(0, "Cristian");
             var newCount = dynamicArray.Count;
 
@@ -81,6 +81,37 @@ namespace Test.DataStructures
             dynamicArray.Add(1);
 
             Assert.Throws<ArgumentOutOfRangeException>(() => dynamicArray.RemoveAt(index));
+        }
+
+        [Fact]
+        public void RemoveAt_RemovesElement_ShouldShiftValues()
+        {
+            var dynamicArray = new DynamicArray<int>();
+
+            dynamicArray.Add(1);
+            dynamicArray.Add(2);
+            dynamicArray.Add(3);
+
+            dynamicArray.RemoveAt(1);
+
+            Assert.Equal(2, dynamicArray.Count);
+
+            Assert.Equal(1, dynamicArray.Get(0));
+            Assert.Equal(3, dynamicArray.Get(1));
+        }
+
+        [Fact]
+        public void EnsureCapacity_ShouldDoubleSize_WhenCapacityIsExceeded()
+        {
+            var dynamicArray = new DynamicArray<int>(2);
+
+            dynamicArray.Add(1);
+            dynamicArray.Add(2);
+
+            Assert.Equal(2, dynamicArray.Capacity);
+
+            dynamicArray.Add(3);
+            Assert.Equal(4, dynamicArray.Capacity);
         }
     }
 }
