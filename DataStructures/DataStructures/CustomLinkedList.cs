@@ -130,7 +130,13 @@
         public T[] ToArray()
         {
             var result = new T[_count];
-            // TODO: Turn to array the linked list
+            var current = _head;
+
+            for (int i = 0; i < _count; i++)
+            {
+                result[i] = current!.Value;
+                current = current.Next;
+            }
 
             return result;
         }

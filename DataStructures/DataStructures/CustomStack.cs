@@ -54,9 +54,23 @@
 
         public T[] ToArray()
         {
-            // TODO: Convertir a array
 
-            return default!;
+            if (_count == 0)
+            {
+                return Array.Empty<T>();
+            }
+
+            T[] result = new T[_count];
+            Node current = _top;
+            int index = 0;
+
+            while (current != null)
+            {
+                result[index++] = current.Value;
+                current = current.Next;
+            }
+
+            return result;
         }
     }
 }

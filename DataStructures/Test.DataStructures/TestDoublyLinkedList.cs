@@ -31,55 +31,78 @@
         [Fact]
         public void ToReversedArray_ShouldReturnCorrectReverseOrder()
         {
-            // TODO: Complete the test
+            var list = new DoublyLinkedList<int>();
 
-            // Assert.Equal(new[] {1, 2, 3}, list.ToReversedArray());
+            list.AddLast(1);
+            list.AddLast(2);
+            list.AddLast(3);
+
+            Assert.Equal(new[] {1, 2, 3}, list.ToReversedArray());
         }
 
         [Fact]
         public void Get_ShouldReturnCorrectElement()
         {
-            // TODO: Complete the test
+            var list = new DoublyLinkedList<char>();
+            list.AddFirst('C');
+            list.AddFirst('B');
+            list.AddFirst('A');
 
-            // Assert.Equal('A', list.Get(0));
-            // Assert.Equal('B', list.Get(1));
-            // Assert.Equal('C', list.Get(2));
+            Assert.Equal('A', list.Get(0));
+            Assert.Equal('B', list.Get(1));
+            Assert.Equal('C', list.Get(2));
         }
 
         [Fact]
         public void Get_ShouldThrow_WhenIndexInvalid()
         {
-            // TODO: Complete test
+            var list = new DoublyLinkedList<char>();
 
-            // Assert.Throws<ArgumentOutOfRangeException>(() => list.Get(-1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => list.Get(-1));
         }
 
         [Fact]
         public void Contains_ShouldReturnTrueIfValueExists()
         {
-            // TODO: Complete test
+            var list = new DoublyLinkedList<string>();
 
-            // Assert.True(list.Contains("Carlos"));
+            list.AddLast("Carlos");
+            list.AddLast("Luis");
+            list.AddLast("Sara");
+
+            Assert.True(list.Contains("Carlos"));
         }
 
         [Fact]
         public void Remove_ShouldRemoveExistingValue()
         {
-            // TODO: Complete test
+            var list = new DoublyLinkedList<int>();
 
-            // Assert.True(result);
-            // Assert.Equal(2, list.Count);
-            // Assert.Equal(new[] { 1, 3 }, list.ToArray());
+            list.AddLast(1);
+            list.AddLast(2);
+            list.AddLast(3);
+
+            bool result = list.TryRemove(2);
+
+            Assert.True(result);
+            Assert.Equal(2, list.Count());
+            Assert.Equal(new[] { 1, 3 }, list.ToArray());
         }
 
         [Fact]
         public void Remove_ShouldReturnFalseIfNotFound()
         {
-            // TODO: Complete test
+            var list = new DoublyLinkedList<int>();
 
-            // Assert.False(result);
-            // Assert.Equal(3, list.Count);
-            // Assert.Equal(new[] { 1, 2, 3 }, list.ToArray());
+            list.AddLast(1);
+            list.AddLast(2);
+            list.AddLast(3);
+
+            bool result = list.TryRemove(0);
+
+            Assert.False(result);
+            Assert.Equal(3, list.Count());
+            Assert.Equal(new[] { 1, 2, 3 }, list.ToArray());
         }
 
         // OPTIONAL: Add more tests if wanted
