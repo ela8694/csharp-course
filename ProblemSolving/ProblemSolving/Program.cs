@@ -7,7 +7,15 @@ namespace ProblemSolving
     {
         public static void Main()
         {
-            var tree = new TreeNode<int>(10)
+            string paragraph = "This is a test for you, students, this is the best";
+
+            var find = new FindTheFirstRepeatedWordProblem();
+            find.analyze(paragraph);
+            
+            /*string duplicatedWord = res.analyze(paragraph);
+
+            Console.WriteLine(duplicatedWord);*/
+            /*var tree = new TreeNode<int>(10)
             {
                 Right = new TreeNode<int>(9)
                 {
@@ -29,7 +37,7 @@ namespace ProblemSolving
             Console.WriteLine();
             Tree.Inorder(tree);
             Console.WriteLine();
-            Tree.Postorder(tree);
+            Tree.Postorder(tree);*/
         }
     }
 }
