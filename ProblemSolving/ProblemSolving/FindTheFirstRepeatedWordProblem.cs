@@ -18,5 +18,23 @@
     /// </summary>
     public class FindTheFirstRepeatedWordProblem
     {
+        public void analyze(string paragraph)
+        {
+            string input = paragraph.ToLower();
+            string[] words = input.Replace(',', ' ').Split(' ');
+
+            HashSet<string> result = new HashSet<string>();
+
+            foreach (string word in words)
+            {
+                if (result.Contains(word)) {
+                    Console.WriteLine(word);
+                }
+                result.Add(word);
+            }
+
+            Console.WriteLine("");
+        }
+
     }
 }
